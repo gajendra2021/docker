@@ -7,7 +7,7 @@ COPY . /usr/src/app/
 WORKDIR /usr/src/app
 
 RUN pip install -r requirements.txt 
-RUN curl -sSL https://sdk.cloud.google.com | bash
+RUN curl -sSL https://sdk.cloud.google.com 
 
 
 
