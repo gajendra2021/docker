@@ -1,3 +1,4 @@
+FROM ubuntu 14.04
 FROM python:3.6
 
 RUN mkdir /usr/src/app/
