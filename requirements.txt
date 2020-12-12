@@ -1,0 +1,2 @@
+PyYAML
+google-cloud==0.34.0
