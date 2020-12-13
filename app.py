@@ -52,7 +52,7 @@ def updateNumOfNodes(clusters):
     if cluster['NAME'].lower() == clusterName.lower():
       if 'auto-scaledown' in cluster['LABEL'] and (cluster['LABEL']['auto-scaledown'] == 'true' or cluster['LABEL']['auto-scaledown'] != 'false'):                    #checking labels
         print('Updating number of nodes=0 in Cluster={0}'.format(clusterName))
-        proc = subprocess.Popen(['gcloud', 'container', 'clusters', 'resize', cluster['NAME'], '--zone', cluster['LOCATION'], '--num-nodes=0', '--verbosity', 'info'],
+        proc = subprocess.Popen(['gcloud', 'container', 'clusters', 'resize', cluster['NAME'], '--zone', cluster['LOCATION'], '--num-nodes=1', '--verbosity', 'info'],
                              stdin=subprocess.PIPE, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
         output, error = proc.communicate(b'Y\n')
         print('output = {0}, error = {1}'.format(output, error))
