@@ -11,6 +11,10 @@ RUN apt-get update -qq && \
     usermod -aG docker jenkins && \
     chown -R jenkins:jenkins $JENKINS_HOME/
 
+USER jenkins
+
+VOLUME [$JENKINS_HOME, "/var/run/docker.sock"]
+
 FROM ubuntu 14.04
 FROM python:3.6
 
