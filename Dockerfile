@@ -33,4 +33,4 @@ RUN apt-get -qqy update && apt-get install -qqy \
     apt-get install -y google-cloud-sdk=${CLOUD_SDK_VERSION}-0 \
     gcloud --version
 
-CMD ["python3","app.py", "tactile-vehicle-294612", "cluster-2"]
+CMD ["python3","app.py", "tactile-vehicle-294612","cluster-2"]
