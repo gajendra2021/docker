@@ -93,7 +93,7 @@ if __name__ == '__main__':
   clusterName = sys.argv[2]
   print('Project ID = {0}, Cluster Name = {1}'.format(projectId, clusterName))
   clusters = getClusterList()
- # clusters = getLabels(clusters)
+  clusters = getLabels(clusters)
   #pprint.pprint(clusters)
   updateNumOfNodes(clusters)
 
