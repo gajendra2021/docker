@@ -17,4 +17,4 @@ RUN pip install -r requirements.txt
 RUN curl -sSL https://sdk.cloud.google.com | bash
 ENV PATH $PATH:/root/google-cloud-sdk/bin
 
-CMD ["python3","app.py", "tactile-vehicle-294612","cluster-1"]
+CMD ["python3","app.py", "tactile-vehicle-294612","cluster-2"]
