@@ -37,34 +37,20 @@ def getLabels(clusters):
                          stderr=subprocess.PIPE)
     output, error = p.communicate()
     if not error:
-      cluster['LABEL'] = yaml.safe_load(output)['resourceLabels']
+      cluster['LABEL'] = yaml.safe_load(output).get('resourceLabels')
     else:
       print('Failed to get cluster label')
       exit(1)
 
   return clusters
 
-import asyncio
-async def run(cmd):
-    proc = await asyncio.create_subprocess_shell(
-      cmd,
-      stdin=asyncio.subprocess.PIPE,
-      stdout=asyncio.subprocess.PIPE,
-      stderr=asyncio.subprocess.PIPE)
 
-    stdout, stderr = await proc.communicate(input=b'\n')
-
-    print(f'[{cmd!r} exited with {proc.returncode}]')
-    if stdout:
-      print(f'[stdout]\n{stdout.decode()}')
-    if stderr:
-      print(f'[stderr]\n{stderr.decode()}')
 
 
 def updateNumOfNodes(clusters):
   for cluster in clusters:
     if cluster['NAME'].lower() == clusterName.lower():
-      if 'auto-scaledown' in cluster['LABEL'] and (cluster['LABEL']['auto-scaledown'] == 'true' or cluster['LABEL']['auto-scaledown'] != 'false'):
+      if 'auto-scaledown' in cluster['LABEL'] and (cluster['LABEL']['auto-scaledown'] == 'true' or cluster['LABEL']['auto-scaledown'] != 'false'):                    #checking labels
         print('Updating number of nodes=0 in Cluster={0}'.format(clusterName))
         proc = subprocess.Popen(['gcloud', 'container', 'clusters', 'resize', cluster['NAME'], '--zone', cluster['LOCATION'], '--num-nodes=0', '--verbosity', 'info'],
                              stdin=subprocess.PIPE, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
@@ -96,4 +82,3 @@ if __name__ == '__main__':
   clusters = getLabels(clusters)
   #pprint.pprint(clusters)
   updateNumOfNodes(clusters)
-
