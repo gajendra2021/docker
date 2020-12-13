@@ -1,14 +1,3 @@
-FROM ubuntu:12.04
-
-RUN apt-get update && \
-      apt-get -y install sudo
-
-RUN useradd -m docker && echo "docker:docker" | chpasswd && adduser docker sudo
-
-USER docker
-CMD /bin/bash
-
-
 FROM python:3.6
 
 RUN mkdir /usr/src/app/
@@ -18,7 +7,7 @@ COPY . /usr/src/app/
 
 WORKDIR /usr/src/app
 
-
+RUN apt-get update && apt-get -y install sudo
 
 sudo apt-get update -qq
  
