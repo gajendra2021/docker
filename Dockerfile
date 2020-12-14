@@ -22,10 +22,6 @@ RUN echo "deb http://packages.cloud.google.com/apt $CLOUD_SDK_REPO main" | \
     apt-get update && apt-get install -y google-cloud-sdk
 
 # Setup Google Service Account
-COPY service-account.json /etc/
-ENV GOOGLE_APPLICATION_CREDENTIALS="/etc/service-account.json"
-
-RUN gcloud auth activate-service-account --key-file=${GOOGLE_APPLICATION_CREDENTIALS}
 
     
         
