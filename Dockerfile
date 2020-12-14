@@ -1,4 +1,5 @@
-FROM debian
+FROM ubuntu
+FROM python 3.6
 ENV CLOUD_SDK_VERSION 168.0.0
 
 RUN apt-get -qqy update && apt-get install -qqy \
