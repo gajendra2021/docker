@@ -35,6 +35,4 @@ RUN apt-get -qqy update && apt-get install -qqy \
     curl -sSL https://sdk.cloud.google.com | bash
 ENV PATH $PATH:/root/google-cloud-sdk/bin
 
-    gcloud --version
-    
 CMD ["python3","app.py", "tactile-vehicle-294612", "cluster-2"]
