@@ -1,5 +1,3 @@
-
-FROM ubuntu
 FROM python:3.6
 
 RUN mkdir /usr/src/app/
@@ -22,7 +20,7 @@ RUN echo "deb http://packages.cloud.google.com/apt $CLOUD_SDK_REPO main" | \
     apt-get update && apt-get install -y google-cloud-sdk
 
 # Setup Google Service Account
-RUN gcloud auth activate-service-account --key-file=${tactile-vehicle-294612}
+#RUN gcloud auth activate-service-account --key-file=${tactile-vehicle-294612}
     
         
 ENV PATH $PATH:/root/google-cloud-sdk/bin
