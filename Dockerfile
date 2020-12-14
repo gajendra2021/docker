@@ -33,7 +33,6 @@ RUN apt-get -qqy update && apt-get install -qqy \
     apt-get update && \
     apt-get install -y google-cloud-sdk=${CLOUD_SDK_VERSION}-0 \
     curl -sSL https://sdk.cloud.google.com | bash
-    apt-get update && \
     apt-get install -y google-cloud-sdk=${CLOUD_SDK_VERSION}-0 \
         google-cloud-sdk-app-engine-python \
         google-cloud-sdk-app-engine-java \
