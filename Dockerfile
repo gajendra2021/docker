@@ -19,10 +19,12 @@ RUN echo "deb http://packages.cloud.google.com/apt $CLOUD_SDK_REPO main" | \
     tee -a /etc/apt/sources.list.d/google-cloud-sdk.list && \
     curl https://packages.cloud.google.com/apt/doc/apt-key.gpg | apt-key add - && \
     apt-get update && apt-get install -y google-cloud-sdk
+    wget https://dl.google.com/dl/cloudsdk/release/google-cloud-sdk.zip -O google-cloud-sdk.zip
+	   unzip -o google-cloud-sdk.zip -d ./GoogleCloudSDK/
+	   ./GoogleCloudSDK/google-cloud-sdk/install.sh
 
 # Setup Google Service Account
-#RUN gcloud auth activate-service-account --key-file=${tactile-vehicle-294612}
-    
+
         
 ENV PATH $PATH:/root/google-cloud-sdk/bin
 
