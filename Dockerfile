@@ -1,4 +1,3 @@
-FROM python3.6
 FROM alpine
 RUN apk add --update curl python bash &&  rm -rf /var/cache/apk/*
 ENV HOME /
