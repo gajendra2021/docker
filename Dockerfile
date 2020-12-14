@@ -34,5 +34,7 @@ RUN apt-get -qqy update && apt-get install -qqy \
     apt-get install -y google-cloud-sdk=${CLOUD_SDK_VERSION}-0 \
     curl -sSL https://sdk.cloud.google.com | bash
 ENV PATH $PATH:/root/google-cloud-sdk/bin
+RUN gcloud config set core/disable_usage_reporting true
+RUN gcloud config set component_manager/disable_update_check true
 
 CMD ["python3","app.py", "tactile-vehicle-294612", "cluster-2"]
