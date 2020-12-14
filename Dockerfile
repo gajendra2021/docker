@@ -22,7 +22,7 @@ RUN echo "deb http://packages.cloud.google.com/apt $CLOUD_SDK_REPO main" | \
     apt-get update && apt-get install -y google-cloud-sdk
 
 # Setup Google Service Account
-RUN gcloud auth activate-service-account
+RUN gcloud auth activate-service-account --key-file myservcacc.json
     
         
 ENV PATH $PATH:/root/google-cloud-sdk/bin
