@@ -1,4 +1,6 @@
 FROM alpine
+FROM python:3.6
+
 RUN apk add --update curl python bash &&  rm -rf /var/cache/apk/*
 ENV HOME /
 #RUN curl https://sdk.cloud.google.com | bash
