@@ -4,7 +4,7 @@ WORKDIR /usr/src/app
 
 ARG CLOUD_SDK_VERSION=249.0.0
 ENV CLOUD_SDK_VERSION=$CLOUD_SDK_VERSION
-
+RUN curl -sSL https://sdk.cloud.google.com | bash
 RUN apt-get -qqy update && apt-get install -qqy \
         curl \
         gcc \
