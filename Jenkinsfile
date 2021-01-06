@@ -2,15 +2,12 @@ pipeline {
   agent {
     docker { image 'gcr.io/google.com/cloudsdktool/cloud-sdk@sha256:9fab3bf49c26444d350c3138f9561319257492a78d8eb7bbac1dd3091436e9b3' }
   }
-  agent {
-    any { image 'python' }
-  }
-
+  
   stages {
     stage('test') {
       steps {
         withCredentials([file(credentialsId: 'secretidowner', variable: 'GC_KEY')]) {
-          //sh("gcloud auth activate-service-account --key-file=${GC_KEY}")
+          sh("gcloud auth activate-service-account --key-file=${GC_KEY}")
           //sh("python3 app.py")
           echo "hii"
           //sh("gcloud config set project sigma-kayak-299307")
