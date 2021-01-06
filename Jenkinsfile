@@ -20,5 +20,10 @@ pipeline {
         }
       }
     }
+    stage('deploy') {
+      steps {
+        println('deploying in test')
+      }
+    }  
   }
 }
