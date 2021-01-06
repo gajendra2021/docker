@@ -7,8 +7,8 @@ pipeline {
     stage('test') {
       steps {
         withCredentials([file(credentialsId: 'secretidowner', variable: 'GC_KEY')]) {
-          sh("gcloud auth activate-service-account --key-file=${GC_KEY}")
-          sh("python3 app.py")
+          //sh("gcloud auth activate-service-account --key-file=${GC_KEY}")
+          //sh("python3 app.py")
           echo "hii"
           //sh("gcloud config set project sigma-kayak-299307")
           //sh("pip3 install pandas")
