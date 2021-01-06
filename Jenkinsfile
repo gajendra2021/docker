@@ -3,7 +3,7 @@ pipeline {
     docker { image 'gcr.io/google.com/cloudsdktool/cloud-sdk@sha256:9fab3bf49c26444d350c3138f9561319257492a78d8eb7bbac1dd3091436e9b3' }
   }
   agent {
-    docker { image 'python' }
+    any { image 'python' }
   }
 
   stages {
