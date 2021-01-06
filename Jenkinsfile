@@ -20,6 +20,11 @@ pipeline {
         }
       }
     }
+    stage('bild') {
+      steps {
+        println('building in test')
+      }
+    }  
     stage('deploy') {
       steps {
         println('deploying in test')
