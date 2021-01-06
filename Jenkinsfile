@@ -1,6 +1,6 @@
 pipeline {
   agent {
-    docker { image 'gajju7271/gcloud_python3' }
+    docker { image 'gajju7271/pygcloud' }
   }
   
   stages {
@@ -8,8 +8,8 @@ pipeline {
       steps {
         withCredentials([file(credentialsId: 'secretidowner', variable: 'GC_KEY')]) {
           //sh("gcloud auth activate-service-account --key-file=${GC_KEY}")
-          sh("python3 app.py")
-          echo "hii"
+          //sh("python3 app1.py")
+          //echo "hii"
           //sh("gcloud config set project sigma-kayak-299307")
           //sh("pip3 install pandas")
           //sh("pip3 install xlrd==1.2.0")
