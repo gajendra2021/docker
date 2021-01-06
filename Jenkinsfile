@@ -1,6 +1,6 @@
 pipeline {
   agent {
-    docker { image 'python' }
+    docker { image 'gajju7271/gcloud_python3' }
   }
   
   stages {
